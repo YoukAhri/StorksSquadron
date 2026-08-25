@@ -1,0 +1,176 @@
+
+/* НАЧАЛО НАВИГАЦИОННОЙ ПАНЕЛИ */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 90%;
+  max-width: 900px;
+  z-index: 1000;
+  padding: 12px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateX(-50%);
+
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2); 
+}
+
+/* Левая часть */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Правая часть */
+.navbar-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+
+  flex-wrap: nowrap;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Подчёркивание при наведении */
+.navbar-right a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s;
+}
+
+.navbar-right a:hover::after {
+  width: 100%;
+}
+
+
+/* Адаптив */
+@media (max-width: 480px) {
+    .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    }
+
+    .navbar-right { 
+        display: none;
+    }
+}
+
+
+@media (max-width: 1024px) {
+
+    .navbar-left {
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    .navbar-right { 
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+}
+
+
+
+
+
+
+
+
+
+/* ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА */
+ .lang-switcher {
+  display: flex;
+  gap: 6px;
+  margin-left: 20px;
+}
+
+.lang-switcher a, .lang-switcher button {
+  text-decoration: none;
+  color: #000000;
+  padding: 4px 10px;
+
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15); /* полупрозрачный фон */
+  backdrop-filter: blur(6px); /* эффект стекла */
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  min-width: 40px;       /* фиксируем ширину, чтобы все кнопки были одинаковыми */
+  text-align: center;    /* центрируем текст внутри кнопки */
+  white-space: nowrap;   /* не переносить текст на новую строку */
+}
+
+.lang-switcher a:hover, .lang-switcher button:hover {
+  background: rgba(0, 120, 255, 0.25);
+  color: #e0e0e0;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 120, 255, 0.3);
+}
+
+.navbar-right .lang-switcher a, .lang-switcher button{
+  flex-shrink: 0;
+}
+
+
+
+/* Адаптив */
+@media (max-width: 480px) {
+    .lang-switcher {
+        display: flex;
+        gap: 6px;
+        margin-left: 0px;
+    }
+
+
+}

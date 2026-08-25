@@ -1,0 +1,72 @@
+
+
+.site-footer {
+  background: #fff; /* белый фон */
+  color: #111; /* тёмный текст */
+  padding: 50px 20px 20px;
+  border-top: 2px solid #ddd; /* верхняя обводка */
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* лёгкая тень сверху */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #111; /* тёмный цвет заголовков */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin: 8px 0;
+}
+
+.footer-column a {
+  color: #555; /* тёмно-серый для ссылок */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #000; /* наводка делает ссылку чёрной */
+}
+
+/* Нижняя полоска */
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footer-bottom a {
+  color: #555;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+  color: #000;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Адаптив */
+@media (max-width: 800px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

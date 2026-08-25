@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Storks Pilots</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="pilots.css"/>
+  <link rel="stylesheet" href="../css/fonts.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <script src="../lang/lang.js"></script>
+  <link rel="icon" type="image/png" href="../Picture/Logo.png">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <a href="../index.php">
+      <img src="/Picture/Logo.png" class="logo">
+    </a>
+
+    <a href="../index.php" style="text-decoration: none; outline: none;">
+      <div class="brand">
+        <span class="title" style="color: black;">Storks Squadron</span>
+        <span class="subtitle">DCS World</span>
+      </div>
+    </a>
+
+    <div class="lang-switcher">
+      <button data-lang="ru">RU</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+  
+     <nav class="navbar-right">
+        <a href="../index.php" data-key="main">Главная</a>
+        <a href="../pilots/pilots_list.html" data-key="pilots_list">Пилоты</a>
+        <a href="../server_stat/server_stat.html" data-key="server">Сервер</a>
+        <a href="../profile/profile.html" data-key="profile">Профиль</a>
+      </nav>
+</header>
+
+<div class="pilots-cards" id="pilots"></div>
+<script src="pilots.js"></script>
+<script>
+const container = document.getElementById("pilots"); // ищиет pilots выше в коде
+
+pilots.forEach(pilot => { // для каждого пилот 
+  const card = document.createElement("div"); // создаёт новый див 
+  card.className = "pilot-card"; // переименовывает его в пилот-карт
+
+  // вставка html в элемент
+  card.innerHTML = `
+    <div class="block-avatar-name">
+      <div class="block-name">
+        <span class="pilot-nick">${pilot.nick}</span>
+        <span class="pilot-name">${pilot.name}</span>
+        <span class="pilot-number">${pilot.number}</span>
+      </div>
+      <img src="${pilot.avatar}">
+    </div>
+
+    <hr>
+
+    <div class="date-join">
+      <div class="">
+        <span data-key="joindate"></span> 
+        <span></br>${pilot.joinDate}</span>
+      </div>
+      <span>${pilot.rank}</span>
+    </div>
+
+    <hr>
+
+    <div class="plane-list">
+      ${pilot.planes.map(p => `<span>${p}</span>`).join("")}
+    </div>
+
+    <div class="role">
+      <span>${pilot.role}</span>
+      <img src="${pilot.flag}" style="width:25px;height:25px">
+    </div>
+  `;
+
+
+  container.appendChild(card); // из дум вставляю его в html код 
+});
+</script>
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Блок 1 -->
+    <div class="footer-column">
+      <h3 data-key="info_squadron"></h3>
+      <ul>
+        <li><a href="#pages2" data-key="aboutus"></a></li>
+        <li><a href="#pages5" data-key="guide"></a></li>
+        <li><a href="#pages4" data-key="servers"></a></li>
+      </ul>
+    </div>
+
+    <!-- Блок 2 -->
+    <div class="footer-column">
+      <h3 data-key="community"></h3>
+      <ul>
+        <li><a href="https://www.youtube.com/@dcsstorks" target="_blank">YouTube</a></li>
+        <li><a href="https://discord.gg/VTjmKHR" target="_blank">Discord</a></li>
+        <li><a href="https://boosty.to/dcsstorks" target="_blank">Boosty</a></li>
+      </ul>
+    </div>
+
+    <!-- Блок 3 -->
+    <div class="footer-column">
+      <h3 data-key="additionally"></h3>
+      <ul>
+        <li><a href="#" target="_blank">FAQ</a></li>
+        <li><a href="#" target="_blank" data-key="support"></a></li>
+        <li><a href="https://t.me/ahrilove" target="_blank" data-key="autor"></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+</html>

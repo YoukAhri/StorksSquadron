@@ -1,0 +1,667 @@
+:root {
+  --ink: #13213d;
+  --muted: #61708d;
+  --blue: #163a8a;
+  --blue-2: #204fa8;
+  --paper: #e1faff;
+  --card: #ffffff;
+  --line: #d9deeb;
+  --shadow: 0 18px 46px rgba(19, 33, 61, 0.12);
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #F6F6F6;
+  color: var(--ink);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero {
+
+      display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  background:
+    url("../Picture/Digital_Combat_Simulator_Black_Shark_Screenshot_2026.03.16_-_00.58.38.40 1.png") center / cover no-repeat;
+}
+
+.hero__content {
+    width: min(980px, calc(100% - 36px));
+    color: #fff;
+    text-align: center;
+  
+  animation: fade-up 700ms ease both;
+}
+
+.hero__eyebrow {
+  margin: 0 0 14px;
+  color: #efd788;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.98;
+  text-shadow: 0 12px 32px rgba(0, 0, 0, 0.34);
+}
+
+main {
+  width: min(1480px, calc(100% - 44px));
+  margin: 50px auto 0;
+  position: relative;
+  z-index: 3;
+}
+
+.stats-grid,
+.dashboard {
+  display: grid;
+  gap: 18px;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dashboard {
+  grid-template-columns: 0.9fr 1.1fr;
+  margin-top: 18px;
+}
+
+.stat-card,
+.panel {
+  border: 1px solid rgba(19, 33, 61, 0.08);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.stat-card {
+  min-height: 164px;
+  padding: 24px;
+}
+
+.stat-card__label,
+.monthly-list dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.stat-card__value {
+  display: block;
+  margin-top: 18px;
+  color: var(--blue);
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card__note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.stat-card--center {
+  text-align: center;
+}
+
+.stat-card--center .stat-card__label {
+  justify-content: center;
+}
+
+.stat-card__caption {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.panel {
+  padding: 30px;
+}
+
+.panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: clamp(25px, 2.2vw, 32px);
+  line-height: 1.1;
+}
+
+.panel__action,
+.panel__meta {
+  flex: none;
+  border: 1px solid #bec8dd;
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.panel__action {
+  padding: 10px 18px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.panel__action:hover,
+.panel__action:focus-visible {
+  background: var(--blue);
+  color: #fff;
+}
+
+.panel__meta {
+  padding: 8px 14px;
+  background: #f4f6fb;
+}
+
+.players-table__row {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 96px;
+  align-items: center;
+  min-height: 54px;
+  border-bottom: 1px solid var(--line);
+  gap: 12px;
+  font-weight: 800;
+}
+
+.players-table__row--head {
+  min-height: 44px;
+  border-bottom: 2px solid var(--blue);
+  color: var(--blue);
+  font-size: 17px;
+}
+
+.players-table__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.players-table__time {
+  color: var(--blue);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+}
+
+.chart__axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px;
+  color: var(--muted);
+  font-weight: 800;
+  text-align: right;
+}
+
+.chart__plot {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(42px, 1fr));
+  align-items: end;
+  min-height: 260px;
+  margin-bottom: 48px;
+  padding: 18px 12px 0;
+  border-left: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  background:
+    linear-gradient(to bottom, rgba(22, 58, 138, 0.16) 1px, transparent 1px) 0 0 / 100% 25%;
+  overflow: visible;
+}
+
+.chart--player .chart__axis {
+  height: 280px;
+}
+
+.chart--player .chart__plot {
+  grid-template-columns: repeat(7, minmax(42px, 1fr));
+  min-height: 280px;
+}
+
+.chart__bar {
+  position: relative;
+  justify-self: center;
+  width: min(42px, 68%);
+  height: var(--value);
+  min-height: 8px;
+  border-radius: 7px 7px 0 0;
+  background: linear-gradient(180deg, #6f93d6 0%, #3767ba 52%, var(--blue) 100%);
+  box-shadow: 0 10px 20px rgba(22, 58, 138, 0.2);
+  transform-origin: bottom;
+  animation: grow-bar 780ms ease both;
+}
+
+.chart__bar span {
+  position: absolute;
+  right: 50%;
+  bottom: -44px;
+  transform: translateX(50%);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  gap: 14px;
+  text-align: center;
+}
+
+.mini-stats strong {
+  display: block;
+  color: var(--blue);
+  font-size: 38px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-stats span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.monthly {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 50px;
+}
+
+.panel--monthly {
+  width: min(760px, 100%);
+}
+
+.monthly-list {
+  margin: 20px 0 0;
+}
+
+.monthly-list div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.monthly-list div:last-child {
+  border-bottom: 0;
+}
+
+.monthly-list dd {
+  margin: 0 0 0 auto;
+  color: var(--blue);
+  font-size: 22px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  background: var(--blue);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.icon--users {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+}
+
+.icon--map {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6'/%3E%3Cline x1='8' y1='2' x2='8' y2='18'/%3E%3Cline x1='16' y1='6' x2='16' y2='22'/%3E%3C/svg%3E");
+}
+
+.icon--signal {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.55a11 11 0 0 1 14.08 0'/%3E%3Cpath d='M1.42 9a16 16 0 0 1 21.16 0'/%3E%3Cpath d='M8.53 16.11a6 6 0 0 1 6.95 0'/%3E%3Cline x1='12' y1='20' x2='12.01' y2='20'/%3E%3C/svg%3E");
+}
+
+.icon--clock {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+}
+
+.icon--plane {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z'/%3E%3C/svg%3E");
+}
+
+.icon--pie {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.21 15.89A10 10 0 1 1 8 2.83'/%3E%3Cpath d='M22 12A10 10 0 0 0 12 2v10z'/%3E%3C/svg%3E");
+}
+
+.icon--target {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='black'/%3E%3C/svg%3E");
+}
+
+.icon--skull {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z'/%3E%3Ccircle cx='15' cy='12' r='1'/%3E%3Ccircle cx='9' cy='12' r='1'/%3E%3C/svg%3E");
+}
+
+.icon--tank {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='15' height='6' rx='1.5'/%3E%3Cpath d='M18 13.5h3'/%3E%3Ccircle cx='7' cy='19' r='1.5'/%3E%3Ccircle cx='11' cy='19' r='1.5'/%3E%3Ccircle cx='15' cy='19' r='1.5'/%3E%3Cpath d='M7 11V9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E");
+}
+
+.icon--jet {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='black'%3E%3Cpath d='M12 2 13 9 21 13 21 15 13 13 13 18 16 20 16 22 12 21 8 22 8 20 11 18 11 13 3 15 3 13 11 9 12 2z'/%3E%3C/svg%3E");
+}
+
+.player-hero {
+  position: relative;
+  min-height: 592px;
+  overflow: hidden;
+  background:
+  url("../Picture/Digital_Combat_Simulator_Black_Shark_Screenshot_2026.03.16_-_00.58.38.40 1.png") center / cover no-repeat;
+}
+
+.player-hero__profile {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 58px;
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  width: min(1480px, calc(100% - 44px));
+  transform: translateX(-50%);
+}
+
+.player-avatar {
+  position: relative;
+  flex: none;
+}
+
+.player-avatar img {
+  width: 236px;
+  height: 236px;
+  border: 5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  object-fit: cover;
+}
+
+.player-avatar__status {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  width: 34px;
+  height: 34px;
+  border: 4px solid #2a2230;
+  border-radius: 50%;
+  background: #1ec40a;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.player-hero__text {
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.42);
+}
+
+.player-hero__text h1 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1;
+}
+
+.player-hero__text p:not(.hero__eyebrow) {
+  margin: 10px 0 0;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.player-main {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.module-list {
+  display: grid;
+  gap: 2px;
+}
+
+.module-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 0;
+}
+
+.module-item__thumb {
+  display: grid;
+  width: 60px;
+  height: 42px;
+  place-items: center;
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(22, 58, 138, 0.18), rgba(198, 156, 47, 0.26)),
+    repeating-linear-gradient(135deg, #cdd5e6, #cdd5e6 6px, #dde3ef 6px, #dde3ef 12px);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.module-item__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 9px;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.module-item__hours {
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.module-item__track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #d7dbe3;
+}
+
+.module-item__bar {
+  width: var(--value);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--blue), #5f86d0);
+  transform-origin: left;
+  animation: grow-bar-x 900ms ease both;
+}
+
+@keyframes grow-bar-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 1080px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard,
+  .footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 520px;
+  }
+
+  .nav {
+    align-items: flex-start;
+    border-radius: 28px;
+    flex-wrap: wrap;
+  }
+
+  .brand__name {
+    font-size: 20px;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__links {
+    display: none;
+    width: 100%;
+    padding: 14px 8px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav.is-open .nav__links {
+    display: flex;
+  }
+
+  .hero__content {
+    margin-top: 96px;
+  }
+
+  main {
+    width: min(100% - 28px, 1480px);
+  }
+
+  .stats-grid,
+  .mini-stats,
+  .footer__cols {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .stat-card {
+    padding: 22px;
+  }
+
+  .panel__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .chart {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .chart__plot {
+    overflow-x: auto;
+    grid-template-columns: repeat(7, 54px);
+  }
+
+  .monthly-list div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .monthly-list dd {
+    margin-left: 34px;
+    
+  }
+
+  .player-hero {
+    min-height: 650px;
+  }
+
+  .player-hero__profile {
+    align-items: flex-start;
+    flex-direction: column;
+    bottom: 52px;
+    gap: 22px;
+  }
+
+  .player-avatar img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .player-avatar__status {
+    right: 14px;
+    bottom: 12px;
+  }
+
+  .module-item {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .module-item__thumb {
+    width: 48px;
+  }
+}

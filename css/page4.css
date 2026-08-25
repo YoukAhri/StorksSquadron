@@ -1,0 +1,192 @@
+.pages4 { 
+  background: linear-gradient(180deg, #f5faf9,#c7d0f0);
+  font-family: "Kulim Park", sans-serif;
+  font-weight: 200;
+  width: 100%;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servers-title { 
+  font-family: "Istok Web", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.servers-subtitle { 
+  font-family: "Istok Web", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Горизонтальный ряд карточек + картинка */
+.servers-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 100px;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: nowrap; /* чтобы на десктопе оставались в строке */
+}
+
+/* Левая часть: карточки */
+.servers-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1; /* растягивается по ширине */
+  min-width: 300px;
+}
+
+.servers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.server-card {
+  background: #2d4163;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.icon {
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.title_serv {
+  font-size: 18px;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status_on {
+  font-size: 16px;
+  color: #00ff66;
+}
+.status_off {
+  font-size: 16px;
+  color: #ff0000;
+}
+
+.description {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #bfc9d6;
+}
+
+.info {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #bfc9d6;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  flex-wrap: wrap;
+}
+
+.label {
+  color: #888;
+  margin-right: 10px;
+}
+
+.value {
+  color: #bfc9d6;
+  white-space: nowrap;
+}
+/* пикча */
+.servers-right {
+  height: 700px;  
+}
+
+.servers-right img {
+  max-height: 100%; 
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status.online {
+  color: #2ecc71;
+}
+
+.status.offline {
+  color: #e74c3c;
+}
+
+@media (min-width: 1440px) {
+  .servers-right {
+    height: 570px;  
+  }
+ }
+
+@media (max-width: 1024px) { 
+  .servers-container {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .servers-right {
+    height: 550px;  
+  }
+
+  .servers-left {
+    width: 100%;
+    min-width: auto;
+    align-items: center;
+  }
+
+  .server-card {
+    width: 100%;
+  }
+}  
+
+@media (max-width: 768px) {
+  .servers-right {
+    height: 450px;  
+  }
+ }  
+
+@media (max-width: 480px) {
+  .servers-title {
+    font-size: 2rem;
+  }
+
+  .servers-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .servers-right {
+    height: 310px;  
+  }
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics Storks Server</title>
+  <meta name="description" content="Статистика сервера Storks Squadron в DCS World.">
+  <link rel="stylesheet" href="../css/profile_and_stat.css">
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <script defer src="../JS/app_for_stat.js"></script>
+  <script src="../lang/lang.js"></script>
+</head>
+
+<body>
+  <header class="hero" id="home">
+
+    <!-- Начало навбара -->
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="../index.php">
+          <img src="../Picture/Logo.png" class="logo">
+        </a>
+
+        <a href="../index.php" style="text-decoration: none; outline: none;">
+          <div class="brand">
+            <span class="title" style="color: black;">Storks Squadron</span>
+            <span class="subtitle">DCS World</span>
+          </div>
+        </a>
+
+        <div class="lang-switcher">
+          <button data-lang="ru">RU</button>
+          <button data-lang="en">EN</button>
+        </div>
+      </div>
+
+      <nav class="navbar-right">
+        <a href="../index.php" data-key="main">Главная</a>
+        <a href="../pilots/pilots_list.html" data-key="pilots_list">Пилоты</a>
+        <a href="../server_stat/server_stat.html" data-key="server">Сервер</a>
+        <a href="../profile/profile.html" data-key="profile">Профиль</a>
+      </nav>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">Live server dashboard</p>
+      <h1>Statistics Storks Server</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats-grid" id="stats" aria-label="Сводная статистика">
+      <article class="stat-card">
+        <div class="stat-card__label">
+          <span class="icon icon--users" aria-hidden="true"></span>
+          Игровой онлайн
+        </div>
+        <strong class="stat-card__value" data-counter="online">0/32</strong>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-card__label">
+          <span class="icon icon--map" aria-hidden="true"></span>
+          Текущая карта
+        </div>
+        <strong class="stat-card__value">Caucasus</strong>
+        <p class="stat-card__note">Миссия: Stork_Pretense_Caucasus_2.5_Su35</p>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-card__label">
+          <span class="icon icon--signal" aria-hidden="true"></span>
+          Средний пинг
+        </div>
+        <strong class="stat-card__value" data-counter="ping">0 ms</strong>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-card__label">
+          <span class="icon icon--clock" aria-hidden="true"></span>
+          Время работы
+        </div>
+        <strong class="stat-card__value" data-uptime>00:00:00</strong>
+      </article>
+    </section>
+
+    <section class="dashboard">
+      <article class="panel panel--players" id="players">
+        <div class="panel__head">
+          <h2>Топ игроков</h2>
+          <a class="panel__action" href="player.html">Страница игрока</a>
+        </div>
+        <div class="players-table" role="table" aria-label="Топ игроков по налету">
+          <div class="players-table__row players-table__row--head" role="row">
+            <span role="columnheader">#</span>
+            <span role="columnheader">Игрок</span>
+            <span role="columnheader">Налет</span>
+          </div>
+          <div data-players></div>
+        </div>
+      </article>
+
+      <article class="panel panel--activity" id="activity">
+        <div class="panel__head">
+          <h2>Активность игроков</h2>
+          <span class="panel__meta">7 дней</span>
+        </div>
+
+        <div class="chart" aria-label="График онлайна по дням">
+          <div class="chart__axis" aria-hidden="true">
+            <span>50</span>
+            <span>40</span>
+            <span>30</span>
+            <span>20</span>
+            <span>10</span>
+          </div>
+          <div class="chart__plot" data-chart></div>
+        </div>
+
+        <div class="mini-stats">
+          <div>
+            <strong data-counter="avgOnline">0</strong>
+            <span>Средний онлайн</span>
+          </div>
+          <div>
+            <strong data-counter="maxOnline">0</strong>
+            <span>Макс. онлайн</span>
+          </div>
+          <div>
+            <strong data-counter="uniqueWeek">0</strong>
+            <span>Уникальных игроков</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="monthly">
+      <article class="panel panel--monthly">
+        <h2>Статистика за месяц</h2>
+        <dl class="monthly-list">
+          <div>
+            <dt><span class="icon icon--clock" aria-hidden="true"></span>Налет всего</dt>
+            <dd data-counter="totalHours">0 ч</dd>
+          </div>
+          <div>
+            <dt><span class="icon icon--plane" aria-hidden="true"></span>Вылетов всего</dt>
+            <dd data-counter="totalSorties">0</dd>
+          </div>
+          <div>
+            <dt><span class="icon icon--users" aria-hidden="true"></span>Уникальных игроков</dt>
+            <dd data-counter="monthUnique">0</dd>
+          </div>
+          <div>
+            <dt><span class="icon icon--pie" aria-hidden="true"></span>Средний онлайн</dt>
+            <dd data-counter="monthAvg">0</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Блок 1 -->
+    <div class="footer-column">
+      <h3 data-key="info_squadron"></h3>
+      <ul>
+        <li><a href="#pages2" data-key="aboutus"></a></li>
+        <li><a href="#pages5" data-key="guide"></a></li>
+        <li><a href="#pages4" data-key="servers"></a></li>
+      </ul>
+    </div>
+
+    <!-- Блок 2 -->
+    <div class="footer-column">
+      <h3 data-key="community"></h3>
+      <ul>
+        <li><a href="https://www.youtube.com/@dcsstorks" target="_blank">YouTube</a></li>
+        <li><a href="https://discord.gg/VTjmKHR" target="_blank">Discord</a></li>
+        <li><a href="https://boosty.to/dcsstorks" target="_blank">Boosty</a></li>
+      </ul>
+    </div>
+
+    <!-- Блок 3 -->
+    <div class="footer-column">
+      <h3 data-key="additionally"></h3>
+      <ul>
+        <li><a href="#" target="_blank">FAQ</a></li>
+        <li><a href="#" target="_blank" data-key="support"></a></li>
+        <li><a href="https://t.me/ahrilove" target="_blank" data-key="autor"></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
